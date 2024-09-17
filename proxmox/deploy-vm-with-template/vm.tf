@@ -2,8 +2,11 @@ resource "proxmox_virtual_environment_vm" "terraform-vm" {
   name            = "terraform-vm"
   node_name       = "pve1"
   vm_id           = 2024
-  bios            = "ovmf"
+  bios            = "seabios" # put same bios that template
   stop_on_destroy = true
+  template = false
+  #timeout_create = 180
+  
 
   agent {
     enabled = true
